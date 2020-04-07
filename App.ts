@@ -1,9 +1,10 @@
 import express from 'express';
-import http, {Server} from 'http';
+import http, { Server } from 'http';
 import routes from './src/routes';
-import ErrnoException = NodeJS.ErrnoException;
 import * as core from 'express-serve-static-core';
 import { config, IAppConfig } from './config';
+
+import ErrnoException = NodeJS.ErrnoException;
 
 class App {
     private app: core.Express = express();
@@ -18,8 +19,9 @@ class App {
 
     private initServer(port: number) {
         this.server.listen(port);
-        this.server.on('error', (error: ErrnoException) => this.handleError(error));
-        this.server.on('listening', () => this.handleListening());
+        this.server
+            .on('error', (error: ErrnoException) => this.handleError(error))
+            .on('listening', () => this.handleListening());
     }
 
     private initRoutes() {
@@ -37,7 +39,7 @@ class App {
         const bind = typeof addr === 'string'
             ? 'pipe ' + addr
             : 'port ' + addr.port;
-        console.log('Listening on ' + bind);
+        console.log('Listening on ' + bind); // eslint-disable-line no-console
     }
 }
 

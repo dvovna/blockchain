@@ -1,7 +1,7 @@
 import Transaction from './core/Transaction';
 import Block from './core/Block';
 import config from './config';
-import {BlockChainEvents} from './core/BlockChainEvents';
+import { BlockChainEvents } from './core/BlockChainEvents';
 import { EventEmitter } from 'events';
 
 const GENESIS_BLOCK_HASH = 'GENESIS';

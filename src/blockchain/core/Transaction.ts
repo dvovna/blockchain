@@ -45,7 +45,7 @@ export default class Transaction implements ITransaction {
             .update(this.fromAddress
                 + this.toAddress
                 + this.amount
-                + this.timestamp
+                + this.timestamp,
             ).digest('hex');
     }
 }

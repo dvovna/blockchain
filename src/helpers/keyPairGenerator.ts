@@ -9,5 +9,5 @@ export default {
             publicKey: keyPair.getPublic('hex'),
             privateKey: keyPair.getPrivate('hex'),
         };
-    }
-}
+    },
+};

@@ -1,5 +1,5 @@
-import blockChain, {ITransaction} from '../blockchain';
-import {BlockChainEvents} from '../blockchain/core/BlockChainEvents';
+import blockChain, { ITransaction } from '../blockchain';
+import { BlockChainEvents } from '../blockchain/core/BlockChainEvents';
 
 interface IWalletsCache {
     [index: string]: number;
@@ -12,9 +12,17 @@ class BlockChainService {
         blockChain.events.on(BlockChainEvents.ChainUpdated, () => this.regenerateCache());
     }
 
+    public isWalletExist(walletId: string) {
+        return this.walletsCache[walletId] !== undefined;
+    }
+
+    public getWalletBalance(walletId: string) {
+        return this.walletsCache[walletId];
+    }
+
     private regenerateCache() {
         blockChain.getChain().forEach((block) => {
-            block.transactions.forEach(({fromAddress, toAddress, amount}: ITransaction) => {
+            block.transactions.forEach(({ fromAddress, toAddress, amount }: ITransaction) => {
                 this.walletsCache[fromAddress] = this.walletsCache[fromAddress]
                     ? this.walletsCache[fromAddress] - amount
                     : amount;
@@ -23,14 +31,6 @@ class BlockChainService {
                     : amount;
             });
         });
-    }
-
-    isWalletExist(walletId: string) {
-        return this.walletsCache[walletId] !== undefined;
-    }
-
-    getWalletBalance(walletId: string) {
-        return this.walletsCache[walletId];
     }
 }
 

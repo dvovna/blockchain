@@ -1,6 +1,6 @@
 import transactionRoute from './transaction';
 import walletRoute from './wallet';
-import {Router} from 'express';
+import { Router } from 'express';
 
 interface IRoutesConfig {
     [index: string]: Router;

@@ -1,4 +1,4 @@
-import express, {Request, Response} from 'express';
+import express, { Request, Response } from 'express';
 import keyPairGenerator from '../helpers/keyPairGenerator';
 import blockChainService from '../services/BlockChainService';
 

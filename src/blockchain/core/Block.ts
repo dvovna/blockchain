@@ -8,10 +8,10 @@ export interface IBlock {
 
 class Block implements IBlock {
     public transactions: Transaction[];
-    private hash: string = '';
+    private hash = '';
     private timestamp: number;
     private previousHash: string;
-    private nonce: number = 0;
+    private nonce = 0;
 
     constructor(timestamp: number, transactions: Transaction[], previousHash: string) {
         this.timestamp = timestamp;

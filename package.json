@@ -6,7 +6,8 @@
     "prestart": "tsc",
     "start": "node dist/app.js",
     "watch": "tsc -w",
-    "nodemon": "nodemon dist/App.js"
+    "nodemon": "nodemon dist/App.js",
+    "lint": "eslint --cache --cache-location node_modules/.cache/eslint/ --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore ."
   },
   "dependencies": {
     "@types/elliptic": "^6.4.12",
@@ -22,7 +23,11 @@
   "devDependencies": {
     "@types/express": "^4.17.4",
     "@types/node": "^13.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
     "crypto-js": "^4.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
     "nodemon": "^2.0.2",
     "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^6.1.1",
