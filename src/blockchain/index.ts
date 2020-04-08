@@ -5,7 +5,7 @@ import { ITransaction } from './core/Transaction';
 export { IBlock, ITransaction };
 
 export default {
-    createTransaction: blockChain.addTransaction.bind(blockChain),
-    getChain: blockChain.getChain.bind(blockChain),
     events: blockChain.events,
+    getChain: blockChain.getChain.bind(blockChain),
+    createTransaction: blockChain.addTransaction.bind(blockChain),
 };

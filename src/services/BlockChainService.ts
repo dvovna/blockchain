@@ -9,7 +9,7 @@ class BlockChainService {
     private walletsCache: IWalletsCache = {};
 
     constructor() {
-        blockChain.events.on(BlockChainEvents.ChainUpdated, () => this.regenerateCache());
+        blockChain.events.on(BlockChainEvents.ChainUpdated, () => this.updateCache());
     }
 
     public isWalletExist(walletId: string) {
@@ -20,7 +20,7 @@ class BlockChainService {
         return this.walletsCache[walletId];
     }
 
-    private regenerateCache() {
+    private updateCache() {
         blockChain.getChain().forEach((block) => {
             block.transactions.forEach(({ fromAddress, toAddress, amount }: ITransaction) => {
                 this.walletsCache[fromAddress] = this.walletsCache[fromAddress]
