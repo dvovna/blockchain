@@ -1,6 +1,7 @@
 import express from 'express';
 import http, { Server } from 'http';
 import routes from './src/routes';
+import bodyParser from 'body-parser';
 import * as core from 'express-serve-static-core';
 import { config, IAppConfig } from './config';
 
@@ -12,6 +13,10 @@ class App {
 
     constructor(appConfig: IAppConfig) {
         this.app.set('port', appConfig.port);
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({
+            extended: true,
+        }));
         this.initRoutes();
         this.server = http.createServer(this.app);
         this.initServer(appConfig.port);

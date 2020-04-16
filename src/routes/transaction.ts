@@ -3,8 +3,8 @@ import blockChain from '../blockchain';
 
 const router = express.Router();
 
-router.get('/create', ({ query }: Request, response: Response, next: NextFunction) => {
-    const { fromAddress, toAddress, amount, privateKey } = query;
+router.post('/create', ({ body }: Request, response: Response, next: NextFunction) => {
+    const { fromAddress, toAddress, amount, privateKey } = body;
     if (!fromAddress || !toAddress || !amount || !privateKey) {
         throw new Error('Transaction invalid!');
     }
