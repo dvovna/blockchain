@@ -19,7 +19,7 @@
     "crypto-js": "^4.0.0",
     "debug": "~2.6.9",
     "elliptic": "^6.5.2",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pug": "^2.0.4",
